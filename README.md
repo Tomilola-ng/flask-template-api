@@ -1,28 +1,49 @@
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fexamples%2Ftree%2Fmain%2Fpython%2Fflask3&demo-title=Flask%203%20%2B%20Vercel&demo-description=Use%20Flask%203%20on%20Vercel%20with%20Serverless%20Functions%20using%20the%20Python%20Runtime.&demo-url=https%3A%2F%2Fflask3-python-template.vercel.app%2F&demo-image=https://assets.vercel.com/image/upload/v1669994156/random/flask.png)
+# Flask TodoList API
 
-# Flask + Vercel
+This is a simple Flask application that implements a TodoList API.
 
-This example shows how to use Flask 3 on Vercel with Serverless Functions using the [Python Runtime](https://vercel.com/docs/concepts/functions/serverless-functions/runtimes/python).
+## Prerequisites
 
-## Demo
+* Python 3.9 or higher
+* Flask 3.0.0 or higher
 
-https://flask-python-template.vercel.app/
+## Installation
 
-## How it Works
+1. Clone the repository:
 
-This example uses the Web Server Gateway Interface (WSGI) with Flask to enable handling requests on Vercel with Serverless Functions.
-
-## Running Locally
-
-```bash
-npm i -g vercel
-vercel dev
+``` 
+git clone https://github.com/your-username/flask-todolist-api.git
 ```
 
-Your Flask application is now available at `http://localhost:3000`.
+2. Install the dependencies:
 
-## One-Click Deploy
+```
+pip install -r requirements.txt
+```
+3. Run the application
+```
+flask run
+```
+## Usage
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=vercel-examples):
+The API provides the following endpoints:
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fexamples%2Ftree%2Fmain%2Fpython%2Fflask3&demo-title=Flask%203%20%2B%20Vercel&demo-description=Use%20Flask%203%20on%20Vercel%20with%20Serverless%20Functions%20using%20the%20Python%20Runtime.&demo-url=https%3A%2F%2Fflask3-python-template.vercel.app%2F&demo-image=https://assets.vercel.com/image/upload/v1669994156/random/flask.png)
+* `/`: Returns a welcome message.
+* `/about`: Returns information about the API.
+* `/todos`: Returns a list of all todos.
+* `/todos/<id>`: Returns a single todo with the specified ID.
+* `/todos/create`: Creates a new todo.
+* `/todos/<id>/update`: Updates a todo with the specified ID.
+* `/todos/<id>/delete`: Deletes a todo with the specified ID.
+
+## Example
+
+To create a new todo, send a POST request to the `/todos/create` endpoint with the following JSON data:
+
+json { "title": "My new todo", "description": "This is a description of my new todo." }
+
+To retrieve a single todo, send a GET request to the `/todos/<id>` endpoint, where `<id>` is the ID of the todo you want to retrieve.
+
+```
+curl http://localhost:5000/todos/1
+```
