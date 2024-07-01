@@ -8,4 +8,4 @@ def home():
 
 @app.route('/api')
 def about():
-    return 'Welcome to API'
+    return 'Visit index.py of this code base to start editing response and customizing'
